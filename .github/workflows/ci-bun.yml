@@ -33,3 +33,14 @@ jobs:
 
       - name: Run validate
         run: bun run validate
+      - name: Display System Specs
+        run: |
+          echo "------------------ CPU Info ------------------"
+          echo "CPU Threads: $(nproc)"
+          lscpu | grep 'Model name'
+          
+          echo "------------------ Memory Info ------------------"
+          free -h
+          
+          echo "------------------ Disk Space ------------------"
+          df -h /
